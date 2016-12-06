@@ -1,6 +1,3 @@
-################################# DAMI Programming Assignment 2: Clustering ##################################
-
-# Submitted by Melkote Shivashankar sandesh 
 
 ###### Part 1: Euclidean Distance ######
 
@@ -8,7 +5,7 @@
 A <- matrix(c(1.7, 5, 4, 72), 2, 2, byrow = T) 
 A
 # Then calculate the Euclidean distance between the two observation points
-d <- dist(cbind(A)) # 3 points
+d <- dist(cbind(A))
 print(d)
 
 
@@ -53,7 +50,7 @@ while(TRUE){
   }  
 }
 
-# 4 points
+
 plot(x, col = centroid.label , pch = 19) # Plot the clustered observation points 
 points(centroid.matrix, pch = 19, col = 6, cex = 2) # Add centroids to the plot
 
@@ -63,7 +60,7 @@ km.out1
 plot(x, col = km.out1$cluster, pch = 19)
 points(km.out1$centers, pch = 19, col = 6, cex = 2)
 
-#4 points
+
 
 km.out2 <- kmeans(x, 3)
 km.out2
@@ -88,14 +85,14 @@ dev.off() # quit the plotting structure settings
 # install package "cluster"
 library(cluster)
 # generate a dissimilarity matrix for all the data points in data x, using the Euclidean distance. Hint: use the dist() function is most straight forward.
-dismat <- dist(x, method = "euclidean")     # 2 point
+dismat <- dist(x, method = "euclidean")    
 # run the pam() function with 3 clusters using the dismat generated above
-med <- pam(x, k=3, diss = inherits(x,"dismat"))   # 3 point
-clusters <- med$clustering # 1 point
-medoids <- med$medoids  # 1 point
+med <- pam(x, k=3, diss = inherits(x,"dismat"))   
+clusters <- med$clustering 
+medoids <- med$medoids  
 # plot the clustered data points, where color is decided by the clusters, and add the resulted medoids 
-plot(x, col = clusters, pch = 19)   # 1 point
-points(medoids, pch=19, col=6, cex=2)  # 1 point
+plot(x, col = clusters, pch = 19)  
+points(medoids, pch=19, col=6, cex=2)
 
 
 ###### Part 5: Hierarchical Clustering ######
@@ -112,7 +109,7 @@ points(medoids, pch=19, col=6, cex=2)  # 1 point
   for(i in 1:nrow(x)){
     for(j in 1:nrow(x)){
       if(i < j){
-        ed <- sqrt((x[i,1]-x[j,1])^2 +(x[i,2]-x[j,2])^2) # 3 points #D.ij = sqrt( sum.k (( x1[i,k] - x2[j,k]) **2 ).
+        ed <- sqrt((x[i,1]-x[j,1])^2 +(x[i,2]-x[j,2])^2) #D.ij = sqrt( sum.k (( x1[i,k] - x2[j,k]) **2 ).
         ed1 <- c(ed1, ed)
       }
     }
@@ -133,7 +130,7 @@ hc.complete <- hclust(y, method = "complete")
 # Plot the dendrogram
 plot(hc.complete)
 
-# 4 points
+
 # Try single with hclust function and plot the dendrogram
 where <- sample(1:nrow(x), 20, replace = F)
 x.part <- x[where, ]
